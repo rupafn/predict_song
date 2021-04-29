@@ -1,0 +1,29 @@
+
+{% extends "index.html" %}
+{% block title %}
+ Home Page
+{% endblock %}
+
+{% block content%}
+    <div class="container">
+        <div class="row text-center home_wrapper">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1 class="home_title">Find out how much of each ethnicity music is present in the song!</h1>
+                <!-- enctype="multipart/form-data" -->
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form action = "http://localhost:5000/result" method = "POST" enctype="multipart/form-data">
+                    <input class="form-control file_uploader" type = "file" name = "Name" />
+                    <input class="btn btn-primary submit_button" type = "submit" value = "submit" />
+                </form>
+                <audio id="audio">
+                    <source src="" id="thesource" />
+                </audio>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

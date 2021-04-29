@@ -1,0 +1,33 @@
+.container-main{
+    display: flex i !important;
+    justify-content: center !important;
+}
+
+.home_wrapper {
+    padding: 10vw;
+}
+
+.home_title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.submit_button {
+    text-transform: uppercase;
+    padding: 13px 60px;
+    border-radius: 30px;
+}
+
+.file_uploader {
+    margin: 30px 0 20px 0;
+    border-radius: 20px;
+}
+
+#pie-chart {
+    margin: 50px 0;
+}
+
+.chart_detail_wrapper {
+    padding: 50px;
+}

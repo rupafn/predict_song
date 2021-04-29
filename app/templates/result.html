@@ -1,0 +1,58 @@
+
+
+{% extends "index.html" %}
+{% block title %}
+Result Page
+{% endblock %}
+
+{% block content%}
+    <div class="row">
+        <div class="col-md-6">
+            <canvas id="pie-chart" width="500" height="400"></canvas>
+        </div>
+        <div class="col-md-6 chart_detail_wrapper">
+            <h3>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+    <!-- enctype="multipart/form-data" -->
+    <script>
+        function getPercentage(d) {
+            return (parseFloat(d)*100).toFixed(2) + "%";
+        }
+
+        const zhResult = getPercentage("{{result[0]}}");
+        const msResult = getPercentage("{{result[1]}}");
+        const hiResult = getPercentage("{{result[2]}}");
+        const taResult = getPercentage("{{result[3]}}");
+        const suffixText = "to be precised."
+
+        new Chart(document.getElementById("pie-chart"), {
+        type: 'pie',
+        data: {
+        labels: ["Chinese ("+zhResult+")", "Malay ("+msResult+")", "Hindi ("+hiResult+")", "Tamil ("+taResult+")"],
+        datasets: [{
+            label: "Population (millions)",
+            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+            data: ["{{result[0]}}","{{result[1]}}","{{result[2]}}", "{{result[3]}}"]
+        }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Ethnicity music is present in the song'
+            }
+        }
+    });
+    </script>
+
+    
+
+{% endblock %}
